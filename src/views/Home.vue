@@ -1,18 +1,23 @@
 <template>
-	<div class="home">
-		<img alt="Vue logo" src="../assets/logo.png">
-		<HelloWorld msg="Welcome to Your Vue.js App"/>
+	<div>
+		<Message>I am a box.</Message>
+
+		<Message>Me too.</Message>
+
+		<Counter></Counter>
 	</div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import Message from '@/components/Message.vue'
+import Counter from '@/components/Counter.vue'
 
 export default {
 	name: 'home',
 	components: {
-		HelloWorld
+		// eslint-disable-next-line
+		Message, Counter
 	}
 }
 </script>
