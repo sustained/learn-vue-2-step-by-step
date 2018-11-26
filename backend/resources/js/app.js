@@ -28,6 +28,22 @@ Vue.component('example-component', require('./components/ExampleComponent.vue'))
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+console.log('hmm');
+
 const app = new Vue({
-    el: '#app'
+    el: '#app',
+
+    data() {
+        return {
+            languages: []
+        };
+    },
+
+    mounted() {
+        console.log('mounted');
+
+        axios.get('/languages').then(response => {
+            this.languages = response.data;
+        }).catch(console.error);
+    }
 });
