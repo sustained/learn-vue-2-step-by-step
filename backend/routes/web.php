@@ -15,6 +15,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/courses/create', 'CourseController@create');
+Route::post('/courses', 'CourseController@store');
+
 Route::get('/languages', function () {
     return [
         ['id' => 0, 'name' => 'English', 'difficulty' => 4],
