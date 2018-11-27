@@ -1,6 +1,6 @@
 import FormErrors from './FormErrors';
 
-export class Form {
+export default class Form {
     constructor(data) {
         this._data = data;
 
