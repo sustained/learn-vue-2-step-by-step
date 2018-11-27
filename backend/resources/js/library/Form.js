@@ -27,8 +27,26 @@ export class Form {
         }
     }
 
-    submit(requestType, requestURI) {
-        axios[requestType.toLowerCase()](requestURI, this.data())
+    post(requestURI) {
+        axios.post(requestURI, this.data())
+            .then(this.onSuccess.bind(this))
+            .catch(this.onFailure).bind(this);
+    }
+
+    patch(requestURI) {
+        axios.patch(requestURI, this.data())
+            .then(this.onSuccess.bind(this))
+            .catch(this.onFailure).bind(this);
+    }
+
+    put(requestURI) {
+        axios.put(requestURI, this.data())
+            .then(this.onSuccess.bind(this))
+            .catch(this.onFailure).bind(this);
+    }
+
+    get(requestURI) {
+        axios.get(requestURI, this.data())
             .then(this.onSuccess.bind(this))
             .catch(this.onFailure.bind(this));
     }
