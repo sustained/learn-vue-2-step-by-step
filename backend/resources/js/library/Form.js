@@ -25,40 +25,51 @@ export class Form {
         for (let field in this._data) {
             this[field] = '';
         }
+
+        this.errors.clear();
     }
 
     post(requestURI) {
-        axios.post(requestURI, this.data())
-            .then(this.onSuccess.bind(this))
-            .catch(this.onFailure).bind(this);
+        return this._submit('post', requestURI);
     }
 
     patch(requestURI) {
-        axios.patch(requestURI, this.data())
-            .then(this.onSuccess.bind(this))
-            .catch(this.onFailure).bind(this);
+        return this._submit('patch', requestURI);
     }
 
     put(requestURI) {
-        axios.put(requestURI, this.data())
-            .then(this.onSuccess.bind(this))
-            .catch(this.onFailure).bind(this);
+        return this._submit('put', requestURI);
     }
 
     get(requestURI) {
-        axios.get(requestURI, this.data())
-            .then(this.onSuccess.bind(this))
-            .catch(this.onFailure.bind(this));
+        return this._submit('get', requestURI);
     }
 
-    onSuccess(response) {
-        alert(response.data);
+    _submit(requestMethod, requestURI) {
+        return new Promise((resolve, reject) => {
+            axios[requestMethod](requestURI, this.data())
+                .then(response => {
+                    this.onSuccess(response.data);
 
-        this.errors.clear();
+                    resolve(response.data);
+                })
+                .catch(error => {
+                    this.onFailure(error.response.data);
+
+                    reject(error.response.data);
+                });
+        });
+    }
+
+    onSuccess(data) {
+        console.log('onSuccess', data);
+
         this.reset();
     }
 
-    onFailure(error) {
-        this.errors.set(error.response.data.errors);
+    onFailure(data) {
+        console.log('onFailure', data)
+
+        this.errors.set(data.errors);
     }
 }

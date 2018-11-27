@@ -46,7 +46,9 @@ const app = new Vue({
 
     methods: {
         onSubmit() {
-            this.form.submit('POST', '/courses');
+            this.form.post('/courses')
+                .then(data => alert('success'))
+                .catch(errors => console.log(errors));
         }
     },
 
