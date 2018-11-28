@@ -8,7 +8,8 @@ class LessonController extends Controller
 {
     private $validLessons = [
         '24' => 'Shared State 101',
-        '25' => 'Custom Input Components'
+        '25' => 'Custom Input Components',
+        '26' => 'Vue SPA Essentials: Routing'
     ];
 
     public function index()
