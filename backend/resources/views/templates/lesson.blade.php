@@ -15,20 +15,28 @@
 
     <body>
         <div id="app">
+
+        @unless (request()->is('lessons'))
+
+            <a href="/lessons">Back to Lessons</a>
+
+        @endif
+
             @yield('content')
+
         </div>
 
         <script src="/js/app.js"></script>
 
-        @hasSection('lessonHasScript')
+    @hasSection('lessonHasScript')
 
-            @if (View::getSections()['lessonHasScript'] == true)
+        @if (View::getSections()['lessonHasScript'] == true)
 
         <script src="/js/{{ $slug }}.js"></script>
 
-            @endif
-
         @endif
+
+    @endif
 
         @stack('bodyStyles')
 
