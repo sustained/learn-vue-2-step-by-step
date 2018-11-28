@@ -18,6 +18,10 @@ Route::get('/', function () {
 Route::get('/lessons', 'LessonController@index');
 Route::get('/lessons/{lesson}/{title?}', 'LessonController@show')->where('lesson', '[0-9]+');
 
+Route::get('/statuses', function () {
+    return App\Status::latest()->with('user')->get();
+});
+
 Route::get('/courses/create', 'CourseController@create');
 Route::post('/courses', 'CourseController@store');
 
