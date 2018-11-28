@@ -9,7 +9,8 @@ class LessonController extends Controller
     private $validLessons = [
         '24' => 'Shared State 101',
         '25' => 'Custom Input Components',
-        '26' => 'Vue SPA Essentials: Routing'
+        '26' => 'Vue SPA Essentials: Routing',
+        '27' => 'SPAs and the Backend'
     ];
 
     public function index()
