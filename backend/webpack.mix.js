@@ -1,4 +1,15 @@
+const fs = require('fs');
+const path = require('path');
+
 const mix = require('laravel-mix');
+
+function loadFiles(directory) {
+    return fs.readdirSync(directory).filter(file => {
+        return fs.statSync(path.join(directory, file)).isFile();
+    });
+}
+
+const LESSONS_DIR = path.resolve(__dirname, 'resources/js/lessons');
 
 /*
  |--------------------------------------------------------------------------
@@ -13,5 +24,8 @@ const mix = require('laravel-mix');
 
 mix
     .js('resources/js/app.js', 'public/js')
-    .js('resources/js/lessons/shared-state-101.js', 'public/js')
     .sass('resources/sass/app.scss', 'public/css');
+
+loadFiles(LESSONS_DIR).forEach((file) => {
+    mix.js(path.join(LESSONS_DIR, file), 'public/js');
+});
