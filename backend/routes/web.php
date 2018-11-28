@@ -15,6 +15,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/lessons', 'LessonController@index');
+Route::get('/lessons/{lesson}/{title?}', 'LessonController@show')->where('lesson', '[0-9]+');
+
 Route::get('/courses/create', 'CourseController@create');
 Route::post('/courses', 'CourseController@store');
 

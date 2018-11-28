@@ -28,33 +28,33 @@ Vue.component('example-component', require('./components/ExampleComponent.vue'))
 
 import Form from './library/Form';
 
-const app = new Vue({
-    el: '#app',
+// const app = new Vue({
+//     el: '#app',
 
-    data() {
-        return {
-            languages: [],
+//     data() {
+//         return {
+//             languages: [],
 
-            form: new Form({
-                title: '',
-                description: ''
-            })
-        };
-    },
+//             form: new Form({
+//                 title: '',
+//                 description: ''
+//             })
+//         };
+//     },
 
-    methods: {
-        onSubmit() {
-            this.form.post('/courses')
-                .then(data => alert('success'))
-                .catch(errors => console.log(errors));
-        }
-    },
+//     methods: {
+//         onSubmit() {
+//             this.form.post('/courses')
+//                 .then(data => alert('success'))
+//                 .catch(errors => console.log(errors));
+//         }
+//     },
 
-    mounted() {
-        console.log('mounted');
+//     mounted() {
+//         console.log('mounted');
 
-        axios.get('/languages').then(response => {
-            this.languages = response.data;
-        }).catch(console.error);
-    }
-});
+//         axios.get('/languages').then(response => {
+//             this.languages = response.data;
+//         }).catch(console.error);
+//     }
+// });
