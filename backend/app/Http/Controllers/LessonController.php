@@ -7,7 +7,8 @@ use Illuminate\Http\Request;
 class LessonController extends Controller
 {
     private $validLessons = [
-        '24' => 'Shared State 101'
+        '24' => 'Shared State 101',
+        '25' => 'Custom Input Components'
     ];
 
     public function index()
