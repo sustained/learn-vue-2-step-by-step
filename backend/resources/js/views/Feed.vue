@@ -5,7 +5,7 @@
 		<div v-for="status in statuses" :key="'status-' + status.id">
 			<h3>{{ status.user.name }} said...</h3>
 			<p>
-				<small>{{ postedAt(status) }}</small>
+				<small>{{ status.created_at | relative }}</small>
 			</p>
 
 			<p>{{ status.body }}</p>
@@ -25,9 +25,9 @@
 			};
 		},
 
-		methods: {
-			postedAt(status) {
-				return moment(status.created_at).fromNow();
+		filters: {
+			relative(timestamp) {
+				return moment(timestamp).fromNow();
 			}
 		},
 
