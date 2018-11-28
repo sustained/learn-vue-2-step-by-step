@@ -19,5 +19,8 @@
         "popper.js": "^1.12",
         "vue": "^2.5.17",
         "vue-router": "^3.0.2"
+    },
+    "dependencies": {
+        "moment": "^2.22.2"
     }
 }
