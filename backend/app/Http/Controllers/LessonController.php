@@ -10,7 +10,8 @@ class LessonController extends Controller
         '24' => 'Shared State 101',
         '25' => 'Custom Input Components',
         '26' => 'Vue SPA Essentials: Routing',
-        '27' => 'SPAs and the Backend'
+        '27' => 'SPAs and the Backend',
+        '32' => 'Vue Subclassing'
     ];
 
     public function index()
