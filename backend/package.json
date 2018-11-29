@@ -8,7 +8,8 @@
         "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
         "prod": "npm run production",
         "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-        "test": "ava"
+        "test": "ava",
+        "serve": "php artisan serve --host=\"learn-vue-2-step-by-step.localhost\""
     },
     "devDependencies": {
         "ava": "^0.25.0",
@@ -27,11 +28,6 @@
     },
     "dependencies": {
         "moment": "^2.22.2"
-    },
-    "babel": {
-        "presets": [
-            "es2015"
-        ]
     },
     "ava": {
         "require": [
