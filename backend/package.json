@@ -19,7 +19,7 @@
         "bootstrap": "^4.0.0",
         "browser-env": "^3.2.5",
         "cross-env": "^5.1",
-        "jquery": "^3.2",
+        "jquery": "^3.5",
         "laravel-mix": "^3.0.0",
         "lodash": "^4.17.5",
         "popper.js": "^1.12",
